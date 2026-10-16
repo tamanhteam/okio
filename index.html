@@ -2,9 +2,9 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>OKIO – Bể sục Jacuzzi cao cấp | Tư vấn, lắp đặt trọn gói</title>
-<meta name="description" content="Bể sục Jacuzzi OKIO cho phòng tắm master, sân vườn và sân thượng. Khảo sát, lắp đặt và bảo hành tận nơi. Hotline 0799 989 889.">
+<meta name="description" content="Bể sục Jacuzzi OKIO Solis, Haven, Horizon cho phòng tắm master, gia đình, sân vườn và sân thượng. Khảo sát, lắp đặt, bảo hành tận nơi. Hotline 0799 989 889.">
 <link rel="icon" type="image/webp" href="assets/favicon.webp">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/favicon-32.png">
@@ -14,7 +14,6 @@
 <meta property="og:image" content="assets/anh-chia-se.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<link rel="preload" as="image" href="assets/hero.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -24,53 +23,64 @@
   --line:rgba(237,232,223,.12); --accent:#C9A96E; --accent-hi:#E2C793;
   --cream:#F3EEE6; --cream-ink:#1A1A18; --cream-soft:#4A4740; --cream-muted:#5E5A51; --bronze:#7A5C28;
   --serif:'Cormorant Garamond',Georgia,serif; --sans:'Be Vietnam Pro','Segoe UI',system-ui,sans-serif;
+  --gutter:clamp(20px,5vw,96px); --header-h:84px;
+  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{background:var(--ink);color-scheme:dark;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + env(safe-area-inset-top,0px))}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--ink);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.65;font-size:1rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:rgba(13,14,14,.9)}
 img{max-width:100%;display:block}
 a{color:var(--accent)}a:hover{color:var(--accent-hi)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.1}
 p{margin:0}
-.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
-.row{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
-.row>*{flex:1 1 440px;min-width:0}
-.stack{display:flex;flex-direction:column;gap:24px}
 .kicker{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent)}
 .lead{color:var(--soft);font-size:1.05rem}
-.btn{display:inline-block;text-decoration:none;padding:16px 32px;font-weight:500;letter-spacing:.02em;border:0;cursor:pointer;font-family:inherit;font-size:1rem;transition:background .2s}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.btn{display:inline-block;text-decoration:none;padding:16px 32px;font-weight:500;letter-spacing:.02em;border:0;cursor:pointer;font-family:inherit;font-size:1rem;transition:background .2s,border-color .2s}
 .btn-gold{background:var(--accent);color:#121212}.btn-gold:hover{background:var(--accent-hi);color:#121212}
-.btn-ghost{border:1px solid rgba(237,232,223,.35);color:var(--text)}.btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+.btn-ghost{border:1px solid rgba(237,232,223,.4);color:var(--text)}.btn-ghost:hover{border-color:var(--accent);color:var(--text)}
 .btn-dark{background:var(--cream-ink);color:var(--cream)}.btn-dark:hover{background:#000;color:var(--cream)}
-section{border-top:1px solid var(--line)}
-.pad{padding:104px 0}
+.full{padding-left:var(--gutter);padding-right:var(--gutter)}
+.sec{padding-top:clamp(72px,9vw,136px);padding-bottom:clamp(72px,9vw,136px);border-top:1px solid var(--line)}
+.sec-title{font-size:clamp(2rem,3.6vw,3.2rem)}
 
 /* header */
-header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding-top:18px;padding-bottom:18px}
-header nav{display:flex;flex-wrap:wrap;gap:4px 28px;font-size:.92rem}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(13,14,14,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .bar{display:flex;align-items:center;justify-content:space-between;gap:16px 40px;min-height:var(--header-h)}
+header nav{display:flex;flex-wrap:wrap;gap:4px 36px;font-size:.92rem}
 header nav a,.tel{color:var(--text);text-decoration:none;padding:10px 0}
 header nav a:hover,.tel:hover{color:var(--accent)}
-.head-cta{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap}
+.head-cta{display:flex;align-items:center;gap:12px 24px}
 .head-cta .btn{padding:12px 24px;font-size:.9rem}
 
+/* split full-bleed */
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line)}
+.split .media{position:relative;min-height:clamp(480px,48vw,860px);overflow:hidden}
+.split .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.split:hover .media img{transform:scale(1.03)}
+@media (prefers-reduced-motion:reduce){.split .media img{transition:none}.split:hover .media img{transform:none}}
+.split .copy{display:flex;flex-direction:column;justify-content:center;gap:24px;padding:clamp(56px,7vw,128px) var(--gutter)}
+.split .copy>*{max-width:600px}
+.split.flip .media{order:2}
+
 /* hero */
-.hero{position:relative;overflow:hidden;border-top:0}
-.hero .ripple{position:absolute;right:-220px;top:-160px;width:900px;height:900px;opacity:.22;pointer-events:none}
-.hero .wrap{position:relative;padding-top:88px;padding-bottom:80px}
-.hero h1{font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.05}
+.hero{border-top:0;min-height:calc(100svh - var(--header-h));position:relative}
+.hero .copy{position:relative;overflow:hidden}
+.hero .ripple{position:absolute;left:-260px;bottom:-320px;width:900px;height:900px;opacity:.18;pointer-events:none;max-width:none}
+.hero .copy>*{position:relative}
+.hero h1{font-size:clamp(2.8rem,5.4vw,5.4rem);line-height:1.02}
 .hero h1 em{color:var(--accent)}
-.hero .lead{font-size:1.1rem;max-width:34rem}
-.actions{display:flex;flex-wrap:wrap;gap:14px}
-.trust{display:flex;flex-wrap:wrap;gap:20px 40px;padding-top:24px;border-top:1px solid var(--line)}
-.trust b{display:block;font-family:var(--serif);font-weight:500;font-size:2rem;line-height:1.1}
+.hero .lead{font-size:1.12rem;max-width:34rem}
+.hero .media{min-height:calc(100svh - var(--header-h))}
+.trust{display:flex;flex-wrap:wrap;gap:20px 48px;padding-top:28px;border-top:1px solid var(--line)}
+.trust b{display:block;font-family:var(--serif);font-weight:500;font-size:2.1rem;line-height:1.1}
 .trust span{font-size:.82rem;color:var(--muted)}
-.hero-img{border:1px solid rgba(201,169,110,.35);aspect-ratio:4/5;object-fit:cover;width:100%;height:auto}
 
 /* features */
-.feature h2{font-size:clamp(2rem,3.6vw,3rem)}
-.feature-img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+.feature h2{font-size:clamp(2rem,3.4vw,3.2rem)}
 .points{display:flex;flex-direction:column}
 .points div{display:flex;gap:20px;padding:18px 0;border-top:1px solid var(--line)}
 .points div:last-child{border-bottom:1px solid var(--line)}
@@ -78,62 +88,62 @@ header nav a:hover,.tel:hover{color:var(--accent)}
 .points strong{font-weight:500;display:block}
 .points small{color:var(--muted);font-size:.95rem}
 .tiles{display:flex;flex-wrap:wrap;gap:16px}
-.tiles div{flex:1 1 170px;padding:22px;border:1px solid rgba(237,232,223,.14);background:var(--surface)}
+.tiles div{flex:1 1 160px;padding:22px;border:1px solid rgba(237,232,223,.14);background:var(--surface)}
 .tiles b{display:block;font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--accent)}
 .tiles span{font-size:.9rem;color:var(--muted)}
-.reverse{flex-wrap:wrap-reverse}
 
 /* products */
 .product{background:var(--cream);color:var(--cream-ink);border-top:0}
-.product .pad{padding:96px 0}
 .product .kicker{color:var(--bronze)}
-.product h3{font-weight:600;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1.05}
+.product h3{font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);line-height:1.02}
+.product .sub{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--bronze);margin-top:-14px}
 .product .lead{color:var(--cream-soft)}
-.product-img{width:100%;height:auto;aspect-ratio:16/11;object-fit:cover}
 .badge{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:var(--cream-ink);color:var(--cream);padding:4px 10px}
-.specs{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(26,26,24,.15)}
+.specs{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px;border-top:1px solid rgba(26,26,24,.15)}
 .specs div{padding:14px 0;border-bottom:1px solid rgba(26,26,24,.15)}
-.specs dt{font-size:.78rem;color:var(--cream-muted);text-transform:uppercase;letter-spacing:.12em}
+.specs .wide{grid-column:1/-1}
+.specs dt{font-size:.76rem;color:var(--cream-muted);text-transform:uppercase;letter-spacing:.12em}
 .specs dd{margin:0;font-weight:500}
 .product .more{color:var(--bronze);padding:12px 0}
 
 /* mid cta */
-.mid{text-align:center}
-.mid .wrap{max-width:1040px;padding-top:88px;padding-bottom:88px;display:flex;flex-direction:column;align-items:center;gap:24px}
-.mid h2{font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1.15}
-.mid .lead{max-width:40rem}
+.mid{position:relative;overflow:hidden;text-align:center;background:var(--surface)}
+.mid .inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative}
+.mid h2{font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.12}
+.mid .ripple{position:absolute;left:50%;top:50%;width:1400px;height:1400px;transform:translate(-50%,-50%);opacity:.12;pointer-events:none;max-width:none}
 
 /* compare */
+.compare .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 40px;margin-bottom:40px}
 .table-box{overflow-x:auto;border:1px solid rgba(237,232,223,.14)}
-table{width:100%;min-width:720px;border-collapse:collapse;font-size:.95rem}
-th,td{text-align:left;padding:18px 24px}
+table{width:100%;min-width:760px;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:20px 28px;vertical-align:top}
 thead tr{background:var(--surface)}
-thead th{font-family:var(--serif);font-size:1.4rem;font-weight:600}
-thead th:first-child{font-family:var(--sans);font-size:.8rem;font-weight:400;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
+thead th{font-family:var(--serif);font-size:1.5rem;font-weight:600}
+thead th:first-child{font-family:var(--sans);font-size:.8rem;font-weight:400;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;vertical-align:middle}
 thead th.hl{color:var(--accent)}
 tbody tr{border-top:1px solid var(--line)}
-tbody th{font-weight:400;color:var(--muted)}
+tbody th{font-weight:400;color:var(--muted);white-space:nowrap}
 tbody tr.cta-row{background:var(--surface)}
 
 /* process */
 .process{background:var(--surface)}
-.steps{display:flex;flex-wrap:wrap;gap:24px}
-.steps div{flex:1 1 240px;display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--accent)}
-.steps b{font-family:var(--serif);font-weight:500;font-size:2.4rem;color:var(--accent);line-height:1}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:56px}
+.steps div{display:flex;flex-direction:column;gap:12px;padding-top:22px;border-top:1px solid var(--accent)}
+.steps b{font-family:var(--serif);font-weight:500;font-size:2.6rem;color:var(--accent);line-height:1}
 .steps strong{font-weight:500;font-size:1.1rem}
 .steps span{color:var(--muted);font-size:.95rem}
 
 /* testimonials */
-.quotes{display:flex;flex-wrap:wrap;gap:32px}
-.quotes figure{flex:1 1 440px;margin:0;padding:40px;border:1px solid rgba(237,232,223,.14);display:flex;flex-direction:column;gap:24px}
-.quotes blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:1.6rem;line-height:1.35}
+.quotes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.quotes figure{margin:0;padding:clamp(28px,3vw,48px);border:1px solid rgba(237,232,223,.14);display:flex;flex-direction:column;gap:24px}
+.quotes blockquote{margin:0;font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2vw,1.8rem);line-height:1.35}
 .quotes figcaption{font-size:.9rem;color:var(--muted)}
 
 /* faq */
-.faq .wrap{max-width:920px}
-details{border-top:1px solid rgba(237,232,223,.14);padding:22px 0}
+.faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px 80px;align-items:start}
+details{border-top:1px solid rgba(237,232,223,.14);padding:24px 0}
 details:last-child{border-bottom:1px solid rgba(237,232,223,.14)}
-summary{cursor:pointer;list-style:none;font-size:1.1rem;font-weight:500;display:flex;justify-content:space-between;gap:16px}
+summary{cursor:pointer;list-style:none;font-size:1.12rem;font-weight:500;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
 details[open] summary::after{content:"–"}
@@ -141,17 +151,19 @@ details p{margin-top:14px;color:var(--muted)}
 
 /* quote form */
 .quote{background:var(--cream);color:var(--cream-ink);border-top:0}
+.quote .copy{background:var(--cream)}
 .quote .kicker{color:var(--bronze)}
-.quote h2{font-weight:600;font-size:clamp(2.2rem,4vw,3.2rem);line-height:1.05}
+.quote h2{font-weight:600;font-size:clamp(2.4rem,4.2vw,3.6rem);line-height:1.04}
 .quote .lead{color:var(--cream-soft)}
 .contact{display:flex;flex-direction:column;gap:10px;padding-top:12px;color:var(--cream-soft);font-size:.95rem}
 .contact a{color:var(--bronze)}
-.form-card{background:#fff;border:1px solid rgba(26,26,24,.12);padding:40px}
+.quote .form-side{background:#E9E2D6;display:flex;align-items:center;padding:clamp(40px,6vw,112px) var(--gutter)}
+.form-card{background:#fff;border:1px solid rgba(26,26,24,.12);padding:clamp(24px,3vw,44px);width:100%;max-width:640px}
 .form-grid{display:flex;flex-direction:column;gap:20px}
-.pair{display:flex;flex-wrap:wrap;gap:20px}
-.field{flex:1 1 220px;display:flex;flex-direction:column;gap:8px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
 .field label{font-size:.85rem;font-weight:500}
-.field input,.field select,.field textarea{font:inherit;padding:14px 16px;border:1px solid #B9B2A6;background:#fff;color:var(--cream-ink);border-radius:0}
+.field input,.field select,.field textarea{font:inherit;padding:14px 16px;border:1px solid #B9B2A6;background:#fff;color:var(--cream-ink);border-radius:0;width:100%}
 .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--bronze);outline-offset:0;border-color:var(--bronze)}
 .field textarea{resize:vertical}
 .err{color:#9B2C1F;font-size:.85rem;min-height:1em}
@@ -164,32 +176,42 @@ details p{margin-top:14px;color:var(--muted)}
 
 /* footer */
 footer{border-top:1px solid var(--line)}
-footer .wrap{padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:32px 64px;justify-content:space-between}
+footer .bar{padding-top:56px;padding-bottom:56px;display:flex;flex-wrap:wrap;gap:32px 64px;justify-content:space-between;align-items:flex-start}
 footer .info{display:flex;flex-direction:column;gap:6px;font-size:.9rem;color:var(--muted)}
 footer .info a{color:var(--muted)}
 
-/* floating call button (mobile) */
-.fab{position:fixed;right:16px;bottom:16px;z-index:20;display:none;align-items:center;gap:10px;background:var(--accent);color:#121212;text-decoration:none;padding:14px 20px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:none;align-items:center;gap:10px;background:var(--accent);color:#121212;text-decoration:none;padding:14px 20px;font-weight:500;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 .fab:hover{color:#121212}
 
-@media (max-width:760px){
-  .wrap{padding-left:20px;padding-right:20px}
-  .pad{padding:72px 0}.product .pad{padding:64px 0}
-  .row{gap:36px}
+@media (max-width:1100px){
   header nav{display:none}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:860px){
+  :root{--header-h:68px}
+  header .bar img{height:44px!important}
   .head-cta .tel{display:none}
-  .form-card{padding:24px}
-  .quotes figure{padding:28px}
-  .quotes blockquote{font-size:1.35rem}
+  .split{grid-template-columns:minmax(0,1fr)}
+  .split .media,.split.flip .media{order:0;min-height:0;aspect-ratio:4/3}
+  .hero{min-height:0}
+  .hero .media{order:-1;min-height:0;aspect-ratio:4/5}
+  .hero .copy{padding-top:48px}
+  .quotes,.faq{grid-template-columns:minmax(0,1fr)}
+  .pair{grid-template-columns:minmax(0,1fr)}
   .fab{display:inline-flex}
-  body{padding-bottom:72px}
+  body{padding-bottom:76px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .specs{grid-template-columns:minmax(0,1fr)}
+  .head-cta .btn{padding:10px 16px;font-size:.85rem}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
+  <div class="bar full">
     <a href="#top" aria-label="OKIO – về đầu trang"><img src="assets/logo-okio-sang.webp" alt="OKIO – Bể sục Jacuzzi cao cấp" width="158" height="56" style="height:56px;width:auto"></a>
     <nav aria-label="Điều hướng chính">
       <a href="#san-pham">Sản phẩm</a>
@@ -206,186 +228,169 @@ footer .info a{color:var(--muted)}
 </header>
 
 <main>
-<section class="hero" id="top">
+<section class="split hero" id="top">
+  <div class="copy">
+    <svg class="ripple" aria-hidden="true" viewBox="0 0 800 800"><g fill="none" stroke="#C9A96E" stroke-width="1"><ellipse cx="400" cy="400" rx="80" ry="40"/><ellipse cx="400" cy="400" rx="150" ry="75"/><ellipse cx="400" cy="400" rx="230" ry="115"/><ellipse cx="400" cy="400" rx="320" ry="160"/><ellipse cx="400" cy="400" rx="400" ry="200"/></g></svg>
+    <span class="kicker">Spa riêng tư tại chính ngôi nhà bạn</span>
+    <h1>Thư giãn chuẩn spa,<br><em>mỗi tối khi trở về.</em></h1>
+    <p class="lead">Bể sục Jacuzzi được tư vấn riêng theo không gian, thói quen và số người sử dụng — từ phòng tắm master đến sân thượng biệt thự. Khảo sát, lắp đặt và bảo hành trọn gói.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="#bao-gia">Nhận báo giá riêng</a>
+      <a class="btn btn-ghost" href="#san-pham">Khám phá các dòng bể</a>
+    </div>
+    <div class="trust">
+      <div><b>[X] năm</b><span>Bảo hành thân bể</span></div>
+      <div><b>[X]+</b><span>Công trình đã bàn giao</span></div>
+      <div><b>Tận nơi</b><span>Khảo sát &amp; lắp đặt</span></div>
+    </div>
+  </div>
+  <div class="media"><img src="assets/hero.webp" alt="Bể sục OKIO trên sân thượng lúc hoàng hôn, nhìn ra thành phố" width="1120" height="1400" fetchpriority="high"></div>
+</section>
+
+<section class="split feature" id="cong-nghe">
+  <div class="media"><img src="assets/anh-can-canh.webp" alt="Cận cảnh vòi massage đang phun nước trong bể sục OKIO" width="1200" height="1200" loading="lazy"></div>
+  <div class="copy">
+    <span class="kicker">01 · Thủy liệu pháp</span>
+    <h2>Massage chuyên sâu từ hệ thống vòi phun định hướng</h2>
+    <p class="lead">Mỗi vị trí ngồi được bố trí vòi theo từng nhóm cơ, để 20 phút ngâm mình mang lại cảm giác như một buổi trị liệu thực thụ.</p>
+    <div class="points">
+      <div><i>i.</i><p><strong>Vòi theo nhóm cơ</strong><small>Lưng, vai gáy, thắt lưng và bàn chân — từ khoảng 14 đến 80 vòi tùy dòng bể.</small></p></div>
+      <div><i>ii.</i><p><strong>Tùy chỉnh áp lực &amp; bọt khí</strong><small>Chuyển giữa chế độ thư giãn nhẹ và massage mạnh chỉ bằng một nút.</small></p></div>
+      <div><i>iii.</i><p><strong>Ghế ngồi công thái học</strong><small>Lòng bể ôm theo dáng người, có vị trí nằm duỗi thẳng chân.</small></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="split flip product" id="san-pham">
+  <div class="media"><img src="assets/san-pham-a.webp" alt="Bể sục OKIO Solis đặt trong phòng tắm đá marble" width="1512" height="1040" loading="lazy"></div>
+  <div class="copy">
+    <span class="kicker">Dòng A · Dành cho 2–3 người</span>
+    <h3>OKIO Solis</h3>
+    <p class="sub">Bể sục thư giãn cá nhân</p>
+    <p class="lead">Thiết kế tinh gọn dành cho phòng tắm master, căn hộ cao cấp và nhà phố. Hệ thống vòi massage kết hợp nước ấm mang đến không gian thư giãn riêng tư ngay tại nhà.</p>
+    <dl class="specs">
+      <div><dt>Kích thước</dt><dd>Khoảng 160 × 160 × 75 cm</dd></div>
+      <div><dt>Sức chứa</dt><dd>2–3 người</dd></div>
+      <div><dt>Vòi massage</dt><dd>Khoảng 14–25 vòi</dd></div>
+      <div><dt>Chất liệu</dt><dd>Acrylic chuyên dụng</dd></div>
+      <div class="wide"><dt>Tùy chọn</dt><dd>Đèn LED, gia nhiệt, lọc tuần hoàn</dd></div>
+    </dl>
+    <div class="actions"><a class="btn btn-dark" href="#bao-gia" data-model="a">Nhận báo giá OKIO Solis</a><a class="more" href="#so-sanh">So sánh thông số</a></div>
+  </div>
+</section>
+
+<section class="split flip feature">
+  <div class="media"><img src="assets/mat-nuoc-trong.webp" alt="Mặt nước ấm trong vắt, hơi nước bốc nhẹ trong bể sục" width="1200" height="1200" loading="lazy"></div>
+  <div class="copy">
+    <span class="kicker">02 · Nước sạch, luôn ấm</span>
+    <h2>Gia nhiệt ổn định và lọc tuần hoàn tự động</h2>
+    <p class="lead">Bước vào là ấm, ngâm bao lâu cũng sạch. Hệ thống tự vận hành để bạn không phải bận tâm đến việc thay nước hay chờ đợi.</p>
+    <div class="tiles">
+      <div><b>[nhiệt độ]</b><span>Giữ nhiệt theo mức cài đặt</span></div>
+      <div><b>Tự động</b><span>Chu trình lọc tuần hoàn</span></div>
+      <div><b>[Ozone / UV]</b><span>Tùy chọn khử khuẩn</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="split product">
+  <div class="media"><img src="assets/san-pham-b.webp" alt="Gia đình thư giãn trong bể sục OKIO Haven trên sân hiên" width="1512" height="1040" loading="lazy"></div>
+  <div class="copy">
+    <div class="actions" style="gap:12px"><span class="kicker">Dòng B · Dành cho 4–6 người</span><span class="badge">Nổi bật</span></div>
+    <h3>OKIO Haven</h3>
+    <p class="sub">Bể sục dành cho gia đình</p>
+    <p class="lead">Không gian thư giãn rộng rãi dành cho gia đình hoặc những buổi gặp gỡ bạn bè. Bố trí nhiều vị trí ngồi massage, kết hợp ghế nằm thư giãn để nâng cao trải nghiệm sử dụng.</p>
+    <dl class="specs">
+      <div><dt>Kích thước</dt><dd>Khoảng 230 × 230 × 90 cm</dd></div>
+      <div><dt>Sức chứa</dt><dd>4–6 người</dd></div>
+      <div><dt>Vòi massage</dt><dd>Khoảng 60–80 vòi</dd></div>
+      <div><dt>Dung tích nước</dt><dd>Khoảng 1.500–1.700 lít</dd></div>
+      <div class="wide"><dt>Lắp đặt</dt><dd>Trong nhà hoặc ngoài trời</dd></div>
+    </dl>
+    <div class="actions"><a class="btn btn-dark" href="#bao-gia" data-model="b">Nhận báo giá OKIO Haven</a><a class="more" href="#so-sanh">So sánh thông số</a></div>
+  </div>
+</section>
+
+<section class="split feature">
+  <div class="media"><img src="assets/be-ban-dem.webp" alt="Bể sục ban đêm với đèn LED dưới nước và bảng điều khiển cảm ứng" width="1200" height="1200" loading="lazy"></div>
+  <div class="copy">
+    <span class="kicker">03 · Trải nghiệm thông minh</span>
+    <h2>Ánh sáng, âm thanh và nhiệt độ trong tầm tay</h2>
+    <p class="lead">Bảng điều khiển cảm ứng [và ứng dụng điện thoại] cho phép làm ấm bể trước khi bạn về nhà, chọn màu đèn theo tâm trạng và bật nhạc yêu thích.</p>
+    <div class="points">
+      <div><i>i.</i><p><strong>Đèn LED dưới nước</strong><small>Nhiều chế độ màu, tạo không gian thư giãn buổi tối.</small></p></div>
+      <div><i>ii.</i><p><strong>Điều khiển cảm ứng</strong><small>Nhiệt độ, vòi massage, ánh sáng — tất cả trên một màn hình.</small></p></div>
+      <div><i>iii.</i><p><strong>[Loa Bluetooth tích hợp]</strong><small>[Mô tả nếu dòng bể có trang bị.]</small></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="split flip product">
+  <div class="media"><img src="assets/san-pham-c.webp" alt="Bể sục OKIO Horizon ngoài trời trên sân thượng lúc hoàng hôn" width="1512" height="1040" loading="lazy"></div>
+  <div class="copy">
+    <span class="kicker">Dòng C · Sân vườn &amp; sân thượng</span>
+    <h3>OKIO Horizon</h3>
+    <p class="sub">Bể sục ngoài trời cao cấp</p>
+    <p class="lead">Thiết kế dành cho biệt thự, resort và homestay cao cấp, kết hợp bể sục với cảnh quan sân vườn hoặc tầm nhìn sân thượng. Tùy chọn lớp giữ nhiệt và ốp ngoài giúp hoàn thiện không gian theo phong cách kiến trúc.</p>
+    <dl class="specs">
+      <div><dt>Kích thước</dt><dd>Khoảng 230 × 230 × 90 cm</dd></div>
+      <div><dt>Sức chứa</dt><dd>Cấu hình đề xuất 4–6 người</dd></div>
+      <div><dt>Vòi massage</dt><dd>Tùy cấu hình</dd></div>
+      <div><dt>Nắp giữ nhiệt</dt><dd>Tùy chọn</dd></div>
+      <div><dt>Ốp ngoài</dt><dd>Tùy chọn theo thiết kế</dd></div>
+      <div><dt>Lắp đặt</dt><dd>Sân vườn, sân thượng hoặc khu nghỉ dưỡng</dd></div>
+    </dl>
+    <div class="actions"><a class="btn btn-dark" href="#bao-gia" data-model="c">Nhận báo giá OKIO Horizon</a><a class="more" href="#so-sanh">So sánh thông số</a></div>
+  </div>
+</section>
+
+<section class="mid sec full">
   <svg class="ripple" aria-hidden="true" viewBox="0 0 800 800"><g fill="none" stroke="#C9A96E" stroke-width="1"><ellipse cx="400" cy="400" rx="80" ry="40"/><ellipse cx="400" cy="400" rx="150" ry="75"/><ellipse cx="400" cy="400" rx="230" ry="115"/><ellipse cx="400" cy="400" rx="320" ry="160"/><ellipse cx="400" cy="400" rx="400" ry="200"/></g></svg>
-  <div class="wrap row">
-    <div class="stack">
-      <span class="kicker">Spa riêng tư tại chính ngôi nhà bạn</span>
-      <h1>Thư giãn chuẩn spa,<br><em>mỗi tối khi trở về.</em></h1>
-      <p class="lead">Bể sục Jacuzzi được tư vấn riêng theo không gian, thói quen và số người sử dụng — từ phòng tắm master đến sân thượng biệt thự. Khảo sát, lắp đặt và bảo hành trọn gói.</p>
-      <div class="actions">
-        <a class="btn btn-gold" href="#bao-gia">Nhận báo giá riêng</a>
-        <a class="btn btn-ghost" href="#san-pham">Khám phá các dòng bể</a>
-      </div>
-      <div class="trust">
-        <div><b>[X] năm</b><span>Bảo hành thân bể</span></div>
-        <div><b>[X]+</b><span>Công trình đã bàn giao</span></div>
-        <div><b>Tận nơi</b><span>Khảo sát &amp; lắp đặt</span></div>
-      </div>
-    </div>
-    <div><img class="hero-img" src="assets/hero.webp" alt="Bể sục OKIO trên sân thượng lúc hoàng hôn, nhìn ra thành phố" width="1120" height="1400" fetchpriority="high"></div>
-  </div>
-</section>
-
-<section class="feature" id="cong-nghe">
-  <div class="wrap pad row">
-    <div><img class="feature-img" src="assets/anh-can-canh.webp" alt="Cận cảnh vòi massage đang phun nước trong bể sục OKIO" width="1200" height="1200" loading="lazy"></div>
-    <div class="stack">
-      <span class="kicker">01 · Thủy liệu pháp</span>
-      <h2>Massage chuyên sâu từ hệ thống vòi phun định hướng</h2>
-      <p class="lead">Mỗi vị trí ngồi được bố trí vòi theo từng nhóm cơ, để 20 phút ngâm mình mang lại cảm giác như một buổi trị liệu thực thụ.</p>
-      <div class="points">
-        <div><i>i.</i><p><strong>Vòi theo nhóm cơ</strong><small>Lưng, vai gáy, thắt lưng và bàn chân — từ khoảng 14 đến 80 vòi tùy dòng bể.</small></p></div>
-        <div><i>ii.</i><p><strong>Tùy chỉnh áp lực &amp; bọt khí</strong><small>Chuyển giữa chế độ thư giãn nhẹ và massage mạnh chỉ bằng một nút.</small></p></div>
-        <div><i>iii.</i><p><strong>Ghế ngồi công thái học</strong><small>Lòng bể ôm theo dáng người, có vị trí nằm duỗi thẳng chân.</small></p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="product" id="san-pham">
-  <div class="wrap pad row">
-    <div class="stack">
-      <span class="kicker">Dành cho 2–3 người</span>
-      <h3>OKIO Solis</h3>
-      <p style="font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--bronze);margin-top:-12px">Bể sục thư giãn cá nhân</p>
-      <p class="lead">Thiết kế tinh gọn dành cho phòng tắm master, căn hộ cao cấp và nhà phố. Hệ thống vòi massage kết hợp nước ấm mang đến không gian thư giãn riêng tư ngay tại nhà.</p>
-      <dl class="specs">
-        <div><dt>Kích thước</dt><dd>Khoảng 160 × 160 × 75 cm</dd></div>
-        <div><dt>Sức chứa</dt><dd>2–3 người</dd></div>
-        <div><dt>Vòi massage</dt><dd>Khoảng 14–25 vòi</dd></div>
-        <div><dt>Chất liệu</dt><dd>Acrylic chuyên dụng</dd></div>
-        <div style="grid-column:1/-1"><dt>Tùy chọn</dt><dd>Đèn LED, gia nhiệt, lọc tuần hoàn</dd></div>
-      </dl>
-      <div class="actions"><a class="btn btn-dark" href="#bao-gia" data-model="a">Nhận báo giá dòng này</a><a class="more" href="#so-sanh">So sánh thông số</a></div>
-    </div>
-    <div><img class="product-img" src="assets/san-pham-a.webp" alt="Bể sục OKIO Solis đặt trong phòng tắm đá marble" width="1512" height="1040" loading="lazy"></div>
-  </div>
-</section>
-
-<section class="feature">
-  <div class="wrap pad row reverse">
-    <div class="stack">
-      <span class="kicker">02 · Nước sạch, luôn ấm</span>
-      <h2>Gia nhiệt ổn định và lọc tuần hoàn tự động</h2>
-      <p class="lead">Bước vào là ấm, ngâm bao lâu cũng sạch. Hệ thống tự vận hành để bạn không phải bận tâm đến việc thay nước hay chờ đợi.</p>
-      <div class="tiles">
-        <div><b>[nhiệt độ]</b><span>Giữ nhiệt theo mức cài đặt</span></div>
-        <div><b>Tự động</b><span>Chu trình lọc tuần hoàn</span></div>
-        <div><b>[Ozone / UV]</b><span>Tùy chọn khử khuẩn</span></div>
-      </div>
-    </div>
-    <div><img class="feature-img" src="assets/mat-nuoc-trong.webp" alt="Mặt nước ấm trong vắt, hơi nước bốc nhẹ trong bể sục" width="1200" height="1200" loading="lazy"></div>
-  </div>
-</section>
-
-<section class="product">
-  <div class="wrap pad row reverse">
-    <div><img class="product-img" src="assets/san-pham-b.webp" alt="Gia đình thư giãn trong bể sục OKIO Haven trên sân hiên" width="1512" height="1040" loading="lazy"></div>
-    <div class="stack">
-      <div class="actions" style="align-items:center;gap:12px"><span class="kicker">Dành cho 4–6 người</span><span class="badge">Nổi bật</span></div>
-      <h3>OKIO Haven</h3>
-      <p style="font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--bronze);margin-top:-12px">Bể sục dành cho gia đình</p>
-      <p class="lead">Không gian thư giãn rộng rãi dành cho gia đình hoặc những buổi gặp gỡ bạn bè. Bố trí nhiều vị trí ngồi massage, kết hợp ghế nằm thư giãn để nâng cao trải nghiệm sử dụng.</p>
-      <dl class="specs">
-        <div><dt>Kích thước</dt><dd>Khoảng 230 × 230 × 90 cm</dd></div>
-        <div><dt>Sức chứa</dt><dd>4–6 người</dd></div>
-        <div><dt>Vòi massage</dt><dd>Khoảng 60–80 vòi</dd></div>
-        <div><dt>Dung tích nước</dt><dd>Khoảng 1.500–1.700 lít</dd></div>
-        <div style="grid-column:1/-1"><dt>Lắp đặt</dt><dd>Trong nhà hoặc ngoài trời</dd></div>
-      </dl>
-      <div class="actions"><a class="btn btn-dark" href="#bao-gia" data-model="b">Nhận báo giá dòng này</a><a class="more" href="#so-sanh">So sánh thông số</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="feature">
-  <div class="wrap pad row">
-    <div><img class="feature-img" src="assets/be-ban-dem.webp" alt="Bể sục ban đêm với đèn LED dưới nước và bảng điều khiển cảm ứng" width="1200" height="1200" loading="lazy"></div>
-    <div class="stack">
-      <span class="kicker">03 · Trải nghiệm thông minh</span>
-      <h2>Ánh sáng, âm thanh và nhiệt độ trong tầm tay</h2>
-      <p class="lead">Bảng điều khiển cảm ứng [và ứng dụng điện thoại] cho phép làm ấm bể trước khi bạn về nhà, chọn màu đèn theo tâm trạng và bật nhạc yêu thích.</p>
-      <div class="points">
-        <div><i>i.</i><p><strong>Đèn LED dưới nước</strong><small>Nhiều chế độ màu, tạo không gian thư giãn buổi tối.</small></p></div>
-        <div><i>ii.</i><p><strong>Điều khiển cảm ứng</strong><small>Nhiệt độ, vòi massage, ánh sáng — tất cả trên một màn hình.</small></p></div>
-        <div><i>iii.</i><p><strong>[Loa Bluetooth tích hợp]</strong><small>[Mô tả nếu dòng bể có trang bị.]</small></p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="product">
-  <div class="wrap pad row">
-    <div class="stack">
-      <span class="kicker">Sân vườn &amp; sân thượng</span>
-      <h3>OKIO Horizon</h3>
-      <p style="font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--bronze);margin-top:-12px">Bể sục ngoài trời cao cấp</p>
-      <p class="lead">Thiết kế dành cho biệt thự, resort và homestay cao cấp, kết hợp bể sục với cảnh quan sân vườn hoặc tầm nhìn sân thượng. Tùy chọn lớp giữ nhiệt và ốp ngoài giúp hoàn thiện không gian theo phong cách kiến trúc.</p>
-      <dl class="specs">
-        <div><dt>Kích thước</dt><dd>Khoảng 230 × 230 × 90 cm</dd></div>
-        <div><dt>Sức chứa</dt><dd>Cấu hình đề xuất 4–6 người</dd></div>
-        <div><dt>Vòi massage</dt><dd>Tùy cấu hình</dd></div>
-        <div><dt>Nắp giữ nhiệt</dt><dd>Tùy chọn</dd></div>
-        <div><dt>Ốp ngoài</dt><dd>Tùy chọn theo thiết kế</dd></div>
-        <div><dt>Lắp đặt</dt><dd>Sân vườn, sân thượng hoặc khu nghỉ dưỡng</dd></div>
-      </dl>
-      <div class="actions"><a class="btn btn-dark" href="#bao-gia" data-model="c">Nhận báo giá dòng này</a><a class="more" href="#so-sanh">So sánh thông số</a></div>
-    </div>
-    <div><img class="product-img" src="assets/san-pham-c.webp" alt="Bể sục OKIO Horizon ngoài trời trên sân thượng lúc hoàng hôn" width="1512" height="1040" loading="lazy"></div>
-  </div>
-</section>
-
-<section class="mid">
-  <div class="wrap">
+  <div class="inner">
     <h2>Chưa chắc dòng bể nào hợp với không gian của bạn?</h2>
     <p class="lead">Gửi kích thước hoặc ảnh khu vực dự kiến lắp đặt — chuyên viên sẽ đề xuất phương án phù hợp kèm báo giá chi tiết.</p>
     <a class="btn btn-gold" href="#bao-gia">Nhận tư vấn &amp; báo giá</a>
   </div>
 </section>
 
-<section id="so-sanh">
-  <div class="wrap pad stack" style="gap:40px">
-    <div class="stack" style="gap:14px"><span class="kicker">So sánh nhanh</span><h2 style="font-size:clamp(2rem,3.6vw,3rem)">Chọn dòng bể phù hợp</h2></div>
-    <div class="table-box">
-      <table>
-        <thead><tr><th scope="col">Thông số</th><th scope="col">OKIO Solis</th><th scope="col" class="hl">OKIO Haven</th><th scope="col">OKIO Horizon</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Sức chứa</th><td>2–3 người</td><td>4–6 người</td><td>4–6 người (đề xuất)</td></tr>
-          <tr><th scope="row">Kích thước</th><td>~160 × 160 × 75 cm</td><td>~230 × 230 × 90 cm</td><td>~230 × 230 × 90 cm</td></tr>
-          <tr><th scope="row">Vòi massage</th><td>14–25 vòi</td><td>60–80 vòi</td><td>Tùy cấu hình</td></tr>
-          <tr><th scope="row">Điểm nổi bật</th><td>Tinh gọn; tùy chọn LED, gia nhiệt, lọc tuần hoàn</td><td>Ghế nằm thư giãn; dung tích 1.500–1.700 lít</td><td>Tùy chọn nắp giữ nhiệt và ốp ngoài theo thiết kế</td></tr>
-          <tr><th scope="row">Vị trí lắp đặt</th><td>Phòng tắm master, căn hộ, nhà phố</td><td>Trong nhà hoặc ngoài trời</td><td>Sân vườn, sân thượng, khu nghỉ dưỡng</td></tr>
-          <tr><th scope="row">Bảo hành</th><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
-          <tr class="cta-row"><th scope="row">Báo giá</th><td><a href="#bao-gia" data-model="a">Nhận báo giá</a></td><td><a href="#bao-gia" data-model="b">Nhận báo giá</a></td><td><a href="#bao-gia" data-model="c">Nhận báo giá</a></td></tr>
-        </tbody>
-      </table>
-    </div>
+<section class="compare sec full" id="so-sanh">
+  <div class="head"><div style="display:flex;flex-direction:column;gap:14px"><span class="kicker">So sánh nhanh</span><h2 class="sec-title">Chọn dòng bể phù hợp</h2></div><a class="btn btn-ghost" href="#bao-gia">Cần tư vấn chọn dòng</a></div>
+  <div class="table-box">
+    <table>
+      <thead><tr><th scope="col">Thông số</th><th scope="col">OKIO Solis</th><th scope="col" class="hl">OKIO Haven</th><th scope="col">OKIO Horizon</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Sức chứa</th><td>2–3 người</td><td>4–6 người</td><td>4–6 người (đề xuất)</td></tr>
+        <tr><th scope="row">Kích thước</th><td>~160 × 160 × 75 cm</td><td>~230 × 230 × 90 cm</td><td>~230 × 230 × 90 cm</td></tr>
+        <tr><th scope="row">Vòi massage</th><td>14–25 vòi</td><td>60–80 vòi</td><td>Tùy cấu hình</td></tr>
+        <tr><th scope="row">Điểm nổi bật</th><td>Tinh gọn; tùy chọn LED, gia nhiệt, lọc tuần hoàn</td><td>Ghế nằm thư giãn; dung tích 1.500–1.700 lít</td><td>Tùy chọn nắp giữ nhiệt và ốp ngoài theo thiết kế</td></tr>
+        <tr><th scope="row">Vị trí lắp đặt</th><td>Phòng tắm master, căn hộ, nhà phố</td><td>Trong nhà hoặc ngoài trời</td><td>Sân vườn, sân thượng, khu nghỉ dưỡng</td></tr>
+        <tr><th scope="row">Bảo hành</th><td>[ ]</td><td>[ ]</td><td>[ ]</td></tr>
+        <tr class="cta-row"><th scope="row">Báo giá</th><td><a href="#bao-gia" data-model="a">Nhận báo giá</a></td><td><a href="#bao-gia" data-model="b">Nhận báo giá</a></td><td><a href="#bao-gia" data-model="c">Nhận báo giá</a></td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="process" id="lap-dat">
-  <div class="wrap pad stack" style="gap:48px">
-    <div class="stack" style="gap:14px"><span class="kicker">Dịch vụ trọn gói</span><h2 style="font-size:clamp(2rem,3.6vw,3rem)">Từ tư vấn đến ngâm mình lần đầu</h2></div>
-    <div class="steps">
-      <div><b>01</b><strong>Tư vấn</strong><span>Trao đổi nhu cầu, số người dùng và ngân sách dự kiến.</span></div>
-      <div><b>02</b><strong>Khảo sát tận nơi</strong><span>Kiểm tra mặt bằng, khả năng chịu lực sàn, nguồn điện và cấp thoát nước.</span></div>
-      <div><b>03</b><strong>Lắp đặt &amp; bàn giao</strong><span>Thi công, vận hành thử và hướng dẫn sử dụng chi tiết.</span></div>
-      <div><b>04</b><strong>Bảo hành &amp; bảo trì</strong><span>[Chính sách bảo hành, lịch bảo trì định kỳ.]</span></div>
-    </div>
+<section class="process sec full" id="lap-dat">
+  <div style="display:flex;flex-direction:column;gap:14px"><span class="kicker">Dịch vụ trọn gói</span><h2 class="sec-title">Từ tư vấn đến ngâm mình lần đầu</h2></div>
+  <div class="steps">
+    <div><b>01</b><strong>Tư vấn</strong><span>Trao đổi nhu cầu, số người dùng và ngân sách dự kiến.</span></div>
+    <div><b>02</b><strong>Khảo sát tận nơi</strong><span>Kiểm tra mặt bằng, khả năng chịu lực sàn, nguồn điện và cấp thoát nước.</span></div>
+    <div><b>03</b><strong>Lắp đặt &amp; bàn giao</strong><span>Thi công, vận hành thử và hướng dẫn sử dụng chi tiết.</span></div>
+    <div><b>04</b><strong>Bảo hành &amp; bảo trì</strong><span>[Chính sách bảo hành, lịch bảo trì định kỳ.]</span></div>
   </div>
 </section>
 
-<section>
-  <div class="wrap pad quotes">
+<section class="sec full">
+  <div class="quotes">
     <figure><blockquote>“[Trích lời đánh giá thật của khách hàng — nên nói về trải nghiệm sau khi dùng, không chỉ khen sản phẩm.]”</blockquote><figcaption>— [Tên khách hàng], [Biệt thự / Căn hộ], [Tỉnh / TP]</figcaption></figure>
     <figure><blockquote>“[Trích lời đánh giá thứ hai — ưu tiên khách nhắc tới dịch vụ lắp đặt, bảo hành.]”</blockquote><figcaption>— [Tên khách hàng], [Công trình], [Tỉnh / TP]</figcaption></figure>
   </div>
 </section>
 
-<section class="faq" id="hoi-dap">
-  <div class="wrap pad stack" style="gap:32px">
-    <h2 style="font-size:clamp(2rem,3.6vw,3rem)">Câu hỏi thường gặp</h2>
+<section class="sec full" id="hoi-dap">
+  <div class="faq">
+    <div style="display:flex;flex-direction:column;gap:14px"><span class="kicker">Hỏi đáp</span><h2 class="sec-title">Câu hỏi thường gặp</h2></div>
     <div>
       <details><summary>Nhà tôi có cần cải tạo để lắp bể sục không?</summary><p>Chuyên viên sẽ khảo sát mặt bằng, khả năng chịu lực sàn, nguồn điện và cấp thoát nước trước khi báo giá, để bạn biết chính xác hạng mục cần chuẩn bị.</p></details>
       <details><summary>Chi phí điện, nước hằng tháng khoảng bao nhiêu?</summary><p>[Ước tính chi phí vận hành theo từng dòng bể và tần suất sử dụng.]</p></details>
@@ -395,19 +400,19 @@ footer .info a{color:var(--muted)}
   </div>
 </section>
 
-<section class="quote" id="bao-gia">
-  <div class="wrap pad row" style="align-items:flex-start">
-    <div class="stack" style="flex-basis:380px">
-      <span class="kicker">Báo giá riêng</span>
-      <h2>Nhận báo giá chi tiết cho không gian của bạn</h2>
-      <p class="lead">Để lại thông tin, chuyên viên sẽ liên hệ trong [thời gian phản hồi] để tư vấn dòng bể và gửi báo giá trọn gói gồm vận chuyển, lắp đặt.</p>
-      <div class="contact">
-        <span>Hotline: <a href="tel:0799989889">0799 989 889</a></span>
-        <span>Zalo: <a href="https://zalo.me/0799989889">0799 989 889</a></span>
-        <span>Showroom: [ĐỊA CHỈ SHOWROOM]</span>
-      </div>
+<section class="split quote" id="bao-gia">
+  <div class="copy">
+    <span class="kicker">Báo giá riêng</span>
+    <h2>Nhận báo giá chi tiết cho không gian của bạn</h2>
+    <p class="lead">Để lại thông tin, chuyên viên sẽ liên hệ trong [thời gian phản hồi] để tư vấn dòng bể và gửi báo giá trọn gói gồm vận chuyển, lắp đặt.</p>
+    <div class="contact">
+      <span>Hotline: <a href="tel:0799989889">0799 989 889</a></span>
+      <span>Zalo: <a href="https://zalo.me/0799989889">0799 989 889</a></span>
+      <span>Showroom: [ĐỊA CHỈ SHOWROOM]</span>
     </div>
-    <div class="form-card" id="form-card" style="flex-basis:520px">
+  </div>
+  <div class="form-side">
+    <div class="form-card" id="form-card">
       <form class="form-grid" id="quote-form" novalidate>
         <div class="pair">
           <div class="field"><label for="q-name">Họ và tên</label><input id="q-name" name="ho_ten" type="text" autocomplete="name" placeholder="Nguyễn Văn A" required></div>
@@ -447,8 +452,8 @@ footer .info a{color:var(--muted)}
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="stack" style="gap:10px">
+  <div class="bar full">
+    <div style="display:flex;flex-direction:column;gap:10px">
       <img src="assets/logo-okio-sang.webp" alt="OKIO – Bể sục Jacuzzi cao cấp" width="180" height="64" style="height:64px;width:auto" loading="lazy">
       <span style="font-size:.85rem;color:var(--muted)">Tư vấn, lắp đặt, bảo hành bể sục trọn gói</span>
     </div>
