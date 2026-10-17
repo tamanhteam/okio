@@ -65,12 +65,16 @@ header nav a:hover,.tel:hover{color:var(--accent)}
 .split .copy{display:flex;flex-direction:column;justify-content:center;gap:24px;padding:clamp(56px,7vw,128px) var(--gutter)}
 .split .copy>*{max-width:600px}
 .split.flip .media{order:2}
+.split.product{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+.split.flip.product{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+.split.product .media{min-height:0;aspect-ratio:16/11}
+.hero .media img{object-position:50% 78%}
 
 /* hero */
 .hero{border-top:0;min-height:calc(100svh - var(--header-h));position:relative}
 .hero .copy{position:relative;overflow:hidden}
 .hero .ripple{position:absolute;left:-260px;bottom:-320px;width:900px;height:900px;opacity:.18;pointer-events:none;max-width:none}
-.hero .copy>*{position:relative}
+.hero .copy>*:not(.ripple){position:relative}
 .hero h1{font-size:clamp(2.8rem,5.4vw,5.4rem);line-height:1.02}
 .hero h1 em{color:var(--accent)}
 .hero .lead{font-size:1.12rem;max-width:34rem}
@@ -191,8 +195,9 @@ footer .info a{color:var(--muted)}
   :root{--header-h:68px}
   header .bar img{height:44px!important}
   .head-cta .tel{display:none}
-  .split{grid-template-columns:minmax(0,1fr)}
+  .split,.split.product,.split.flip.product{grid-template-columns:minmax(0,1fr)}
   .split .media,.split.flip .media{order:0;min-height:0;aspect-ratio:4/3}
+  .split.product .media{aspect-ratio:16/11}
   .hero{min-height:0}
   .hero .media{order:-1;min-height:0;aspect-ratio:4/5}
   .hero .copy{padding-top:48px}
